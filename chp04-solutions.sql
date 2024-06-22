@@ -18,4 +18,5 @@ agtphonenumber
 from agents
 order by agtlastname, agtfirstname
 
-
+/* Q4 Give me the information on all our engagements */
+select * from engagements
