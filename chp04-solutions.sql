@@ -11,3 +11,11 @@ we work with in each city */
 select vendcity, vendname
 from vendors
 order by vendcity
+
+/* Q3 Give me the names and phone numbers of all our agents, and list them in last name/first name order*/
+select concat(agtfirstname,' ',agtlastname) as agent_name,
+agtphonenumber
+from agents
+order by agtlastname, agtfirstname
+
+
