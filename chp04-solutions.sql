@@ -12,11 +12,21 @@ select vendcity, vendname
 from vendors
 order by vendcity
 
+set search_path to entertainmentagencyexample;
+
 /* Q3 Give me the names and phone numbers of all our agents, and list them in last name/first name order*/
 select concat(agtfirstname,' ',agtlastname) as agent_name,
 agtphonenumber
 from agents
-order by agtlastname, agtfirstname
+order by agtlastname, agtfirstname;
 
 /* Q4 Give me the information on all our engagements */
-select * from engagements
+select * from engagements;
+
+/*Q5 List all engagements and their associated start dates. Sort the records by date 
+in descending order and by engagement in ascending order.*/
+
+select engagementnumber, startdate from engagements
+order by startdate desc , engagementnumber;
+
+
