@@ -29,4 +29,5 @@ in descending order and by engagement in ascending order.*/
 select engagementnumber, startdate from engagements
 order by startdate desc , engagementnumber;
 
-
+/*Q6 Show me a complete list of all the subjects we offer*/
+select subjectname from subjects;
