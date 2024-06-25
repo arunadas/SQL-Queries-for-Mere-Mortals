@@ -31,3 +31,6 @@ order by startdate desc , engagementnumber;
 
 /*Q6 Show me a complete list of all the subjects we offer*/
 select subjectname from subjects;
+
+/*Q7 What kinds of titles are associated with our faculty?*/
+select distinct title  from faculty;
