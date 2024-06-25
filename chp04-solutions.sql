@@ -39,3 +39,12 @@ select distinct title  from faculty;
 select concat(stffirstname,' ',stflastname) as stname,
 stfphonenumber from staff
 order by stflastname , stffirstname;
+
+/*Q9 List all of the teams in alphabetical order*/
+select * from teams
+order by teamname;
+
+/*Q10 show me all the bowling score information for each of our members*/
+select * from bowler_scores;
+
+/*Q11 Show me a list of bowlers*/
