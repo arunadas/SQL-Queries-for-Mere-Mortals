@@ -34,3 +34,8 @@ select subjectname from subjects;
 
 /*Q7 What kinds of titles are associated with our faculty?*/
 select distinct title  from faculty;
+
+/*Q8 List the names and phone numbers of all our staff, and sort them by last name and first name*/
+select concat(stffirstname,' ',stflastname) as stname,
+stfphonenumber from staff
+order by stflastname , stffirstname;
