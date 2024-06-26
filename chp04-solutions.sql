@@ -58,3 +58,8 @@ set search_path to recipesexample;
 select distinct ingredientname from ingredients;
 
 select * from ingredients;
+
+/*Q13 show me all the main receipe information,and sort it by the name of the recipe
+in alphabetical order */
+select * from recipes
+order by recipetitle;
