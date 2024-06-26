@@ -51,3 +51,10 @@ select * from bowler_scores;
 select concat(bowlerfirstname,' ',bowlerlastname) as bowlername,
 bowleraddress from bowlers
 order by bowlername;
+
+/*Q12 show me a list of all the ingredients we currently keep track of*/
+set search_path to recipesexample;
+
+select distinct ingredientname from ingredients;
+
+select * from ingredients;
