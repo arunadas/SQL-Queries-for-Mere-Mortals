@@ -3,7 +3,7 @@
 set search_path to salesordersexample;
 /* Q1 show me all the information on our employees*/
 
-select * from employees
+select * from employees;
 
 /* Q2 show me a list of cities, in alphabetical order , where our vendors are located, and include the names of the vendors 
 we work with in each city */
@@ -41,7 +41,7 @@ stfphonenumber from staff
 order by stflastname , stffirstname;
 
 /*Q9 List all of the teams in alphabetical order*/
-select * from teams
+select teamname from teams
 order by teamname;
 
 /*Q10 show me all the bowling score information for each of our members*/
@@ -49,7 +49,7 @@ select * from bowler_scores;
 
 /*Q11 Show me a list of bowlers and their addresses, and sort it in alphabetical order*/
 select concat(bowlerfirstname,' ',bowlerlastname) as bowlername,
-bowleraddress from bowlers
+bowleraddress, bowlercity, bowlerstate, bowlerzip from bowlers
 order by bowlername;
 
 /*Q12 show me a list of all the ingredients we currently keep track of*/
