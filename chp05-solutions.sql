@@ -14,3 +14,7 @@ customerid, orderdate desc
 select vendname, vendstreetaddress, vendcity, vendstate, vendzipcode,vendphonenumber
 from vendors
 order by vendname asc
+
+/*Q4 Give me the names of all our customers by city */
+select custfirstname, custlastname,custcity from customers
+order by custcity
