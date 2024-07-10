@@ -18,3 +18,6 @@ order by vendname asc
 /*Q4 Give me the names of all our customers by city */
 select custfirstname, custlastname,custcity from customers
 order by custcity
+
+/*Q5 List all entertainers and their web sites */
+select entstagename, entemailaddress from entertainers
