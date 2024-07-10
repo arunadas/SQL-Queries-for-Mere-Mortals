@@ -21,3 +21,6 @@ order by custcity
 
 /*Q5 List all entertainers and their web sites */
 select entstagename, entemailaddress from entertainers
+
+/*Q6 Show the date of each agents first six-month performance review */
+select datehired, datehired + INTERVAL '6 months' AS per_date from agents
