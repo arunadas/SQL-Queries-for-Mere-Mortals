@@ -24,3 +24,7 @@ select entstagename, entemailaddress from entertainers
 
 /*Q6 Show the date of each agents first six-month performance review */
 select datehired, datehired + INTERVAL '6 months' AS per_date from agents
+
+/*Q7 Give me a list of staff members, and show them in descending order of salary */
+select stffirstname, stflastname, salary from staff
+order by salary desc
