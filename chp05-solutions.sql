@@ -28,3 +28,6 @@ select datehired, datehired + INTERVAL '6 months' AS per_date from agents
 /*Q7 Give me a list of staff members, and show them in descending order of salary */
 select stffirstname, stflastname, salary from staff
 order by salary desc
+
+/*Q8 can you give me a staff member phone list */
+select stfphonenumber from staff
