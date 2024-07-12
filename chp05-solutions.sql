@@ -31,3 +31,7 @@ order by salary desc
 
 /*Q8 can you give me a staff member phone list */
 select stfphonenumber from staff
+
+/*Q9 list the name of all our students, and order them by the cities they live in  */
+select studfirstname, studlastname, studcity from students
+order by studcity
