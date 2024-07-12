@@ -15,6 +15,8 @@ select vendname, vendstreetaddress, vendcity, vendstate, vendzipcode,vendphonenu
 from vendors
 order by vendname asc
 
+set search_path to entertainmentagencyexample;
+
 /*Q4 Give me the names of all our customers by city */
 select custfirstname, custlastname,custcity from customers
 order by custcity
@@ -24,6 +26,8 @@ select entstagename, entemailaddress from entertainers
 
 /*Q6 Show the date of each agents first six-month performance review */
 select datehired, datehired + INTERVAL '6 months' AS per_date from agents
+
+set search_path to schoolschedulingexample;
 
 /*Q7 Give me a list of staff members, and show them in descending order of salary */
 select stffirstname, stflastname, salary from staff
@@ -35,3 +39,8 @@ select stfphonenumber from staff
 /*Q9 list the name of all our students, and order them by the cities they live in  */
 select studfirstname, studlastname, studcity from students
 order by studcity
+
+set search_path to bowlingleagueexample;
+
+/*Q10 show next year's tournament date for each tournament location  */
+select tourneydate + INTERVAL '365 days' as next_yr_date, * from tournaments
