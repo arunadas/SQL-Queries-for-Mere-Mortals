@@ -44,3 +44,6 @@ set search_path to bowlingleagueexample;
 
 /*Q10 show next year's tournament date for each tournament location  */
 select tourneydate + INTERVAL '365 days' as next_yr_date, * from tournaments
+
+/*Q11 list the name and phone number for each member of the league  */
+select bowlerfirstname, bowlerlastname, bowlerphonenumber from bowlers
