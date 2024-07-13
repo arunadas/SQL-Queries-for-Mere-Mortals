@@ -47,3 +47,7 @@ select tourneydate + INTERVAL '365 days' as next_yr_date, * from tournaments
 
 /*Q11 list the name and phone number for each member of the league  */
 select bowlerfirstname, bowlerlastname, bowlerphonenumber from bowlers
+
+/*Q12 give me the listing of each team's lineup */
+select bowlerfirstname, bowlerlastname,teamid from bowlers
+ORDER BY teamid , bowlerfirstname
