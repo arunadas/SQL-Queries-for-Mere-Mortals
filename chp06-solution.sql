@@ -8,4 +8,8 @@ where vendcity IN ( 'Bellevue', 'Ballard',
 /*Q2 Show me an alphabetize list of products with a retail price of $125.00 or more */
 select productname, retailprice from products
 where retailprice >= 125
-order by productname                   
+order by productname
+
+/*Q3 Which vendor we worked with that don't have web site? */
+select vendname from vendors
+where vendwebpage is null
