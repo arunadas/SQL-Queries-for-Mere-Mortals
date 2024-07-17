@@ -26,3 +26,7 @@ select * from engagements
 where startdate >= '2017-10-01'
 and enddate <= '2017-10-31'
 and starttime between  '12:00:00' and '17:00:00'
+
+/*Q6 List all the engagements that start and end on the same day */
+select * from engagements
+where startdate = enddate
