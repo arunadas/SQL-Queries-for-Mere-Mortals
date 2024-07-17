@@ -13,3 +13,10 @@ order by productname
 /*Q3 Which vendor we worked with that don't have web site? */
 select vendname from vendors
 where vendwebpage is null
+
+set search_path to entertainmentagencyexample;
+
+/**Q4 Let me see a list of all engagements that occurred during october 2017 */
+select * from engagements
+where startdate >= '2017-10-01'
+and enddate <= '2017-10-31'
