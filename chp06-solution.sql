@@ -44,3 +44,8 @@ where studstate not in ('WA','OR')
 /*Q9 List all the subjects that have a subject code starting 'MUS' */
 select subjectname from subjects
 where subjectcode like 'MUS%'
+
+/**Q10 Produce a list of ID numbers all the Associate Professors who are employed full time*/
+select staffid from faculty
+where title = 'Associate Professor'
+and status = 'Full Time'
