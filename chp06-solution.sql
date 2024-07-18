@@ -30,3 +30,9 @@ and starttime between  '12:00:00' and '17:00:00'
 /*Q6 List all the engagements that start and end on the same day */
 select * from engagements
 where startdate = enddate
+
+set search_path to schoolschedulingexample;
+
+/*Q7 Show me which staff members use a post office Box as their address */
+select concat(stffirstname,' ',stflastname) as staffMember,stfstreetaddress  from staff
+where stfstreetaddress like '%PO Box%'
