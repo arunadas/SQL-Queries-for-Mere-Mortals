@@ -36,3 +36,7 @@ set search_path to schoolschedulingexample;
 /*Q7 Show me which staff members use a post office Box as their address */
 select concat(stffirstname,' ',stflastname) as staffMember,stfstreetaddress  from staff
 where stfstreetaddress like '%PO Box%'
+
+/*Q8 Can you show me which students live outside of the pacific Northwest */
+select concat(studfirstname,' ',studlastname) as students from students
+where studstate not in ('WA','OR')
