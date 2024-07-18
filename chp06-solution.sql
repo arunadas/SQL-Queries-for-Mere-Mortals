@@ -40,3 +40,7 @@ where stfstreetaddress like '%PO Box%'
 /*Q8 Can you show me which students live outside of the pacific Northwest */
 select concat(studfirstname,' ',studlastname) as students from students
 where studstate not in ('WA','OR')
+
+/*Q9 List all the subjects that have a subject code starting 'MUS' */
+select subjectname from subjects
+where subjectcode like 'MUS%'
