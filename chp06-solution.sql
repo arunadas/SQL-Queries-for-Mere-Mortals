@@ -49,3 +49,9 @@ where subjectcode like 'MUS%'
 select staffid from faculty
 where title = 'Associate Professor'
 and status = 'Full Time'
+
+set search_path to bowlingleagueexample;
+
+/*Q11 Give me a list of the tournaments held during September 2017*/
+select * from tournaments
+where tourneydate between '2017-09-01' and '2017-09-30'
