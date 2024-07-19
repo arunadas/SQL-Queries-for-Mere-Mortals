@@ -60,3 +60,8 @@ where tourneydate between '2017-09-01' and '2017-09-30'
 select * from tournaments
 where tourneylocation like '%Bolero%' or tourneylocation like '%Red Rooster%'
 or tourneylocation like '%Thunderbird%'
+
+/*Q13 List the bowlers who live on the Eastside and who are in team 5,6,7, or 8*/
+select concat(bowlerfirstname,' ',bowlerlastname) as bowlername from bowlers
+where bowlercity in ('Bellevue', 'Duvall', 'Redmond','Woodinville')
+and teamid between 5 and 8
