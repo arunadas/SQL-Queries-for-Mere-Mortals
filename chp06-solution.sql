@@ -24,8 +24,8 @@ and enddate >= cast('2017-10-01' as Date)
 
 /**Q5 show me any engagements in oct 2017 that start bet noon and 5 pm */
 select * from engagements
-where startdate >= '2017-10-01'
-and enddate <= '2017-10-31'
+where startdate <= cast ('2017-10-31' as Date)
+and enddate >= cast('2017-10-01' as Date)
 and starttime between  '12:00:00' and '17:00:00'
 
 /*Q6 List all the engagements that start and end on the same day */
