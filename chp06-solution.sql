@@ -18,9 +18,9 @@ order by vendname
 set search_path to entertainmentagencyexample;
 
 /**Q4 Let me see a list of all engagements that occurred during october 2017 */
-select * from engagements
-where startdate >= '2017-10-01'
-and enddate <= '2017-10-31'
+select engagementnumber, contractprice,startdate,enddate from engagements
+where startdate <= cast ('2017-10-31' as Date)
+and enddate >= cast('2017-10-01' as Date)
 
 /**Q5 show me any engagements in oct 2017 that start bet noon and 5 pm */
 select * from engagements
