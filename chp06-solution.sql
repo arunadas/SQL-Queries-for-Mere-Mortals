@@ -65,3 +65,8 @@ or tourneylocation like '%Thunderbird%'
 select concat(bowlerfirstname,' ',bowlerlastname) as bowlername from bowlers
 where bowlercity in ('Bellevue', 'Duvall', 'Redmond','Woodinville')
 and teamid between 5 and 8
+
+/*Q14 List all recipes that are main courses (recipe class is 1) and that have notes*/
+select * from recipes
+where recipeclassid = 1
+and notes is not null
