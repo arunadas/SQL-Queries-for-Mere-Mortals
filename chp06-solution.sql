@@ -13,6 +13,7 @@ order by productname
 /*Q3 Which vendor we worked with that don't have web site? */
 select vendname from vendors
 where vendwebpage is null
+order by vendname
 
 set search_path to entertainmentagencyexample;
 
