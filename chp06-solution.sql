@@ -66,7 +66,14 @@ select concat(bowlerfirstname,' ',bowlerlastname) as bowlername from bowlers
 where bowlercity in ('Bellevue', 'Duvall', 'Redmond','Woodinville')
 and teamid between 5 and 8
 
+set search_path to recipesexample;
+
 /*Q14 List all recipes that are main courses (recipe class is 1) and that have notes*/
 select * from recipes
 where recipeclassid = 1
 and notes is not null
+
+/*Q15 Display the first five recipes*/
+select * from recipes
+order by recipeid 
+limit 5
