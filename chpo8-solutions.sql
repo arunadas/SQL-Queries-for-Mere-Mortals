@@ -15,3 +15,12 @@ inner join orders o
 on c.customerid=o.customerid
 inner join employees e 
 on o.employeeid = e.employeeid
+
+/*Q3 Display all orders, the products in each order, and the amount owed for each product, in order number sequence.*/
+select o.ordernumber , p.productname, od.quantityordered*od.quotedprice as amountOwed
+from orders o
+inner join order_details od
+on o.ordernumber = od.ordernumber
+inner join products p 
+on od.productnumber = p.productnumber
+order by o.ordernumber
