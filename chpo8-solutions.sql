@@ -7,3 +7,11 @@ from customers c
 inner join orders o 
 on c.customerid=o.customerid
 
+/*Q2 List employees and the customers for whom they booked an order*/
+select distinct concat(e.empfirstname, ' ',e.emplastname) as empName,
+concat(c.custfirstname, ' ',c.custlastname) as custName
+from customers c 
+inner join orders o 
+on c.customerid=o.customerid
+inner join employees e 
+on o.employeeid = e.employeeid
