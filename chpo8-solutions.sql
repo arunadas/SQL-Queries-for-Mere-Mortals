@@ -24,3 +24,12 @@ on o.ordernumber = od.ordernumber
 inner join products p 
 on od.productnumber = p.productnumber
 order by o.ordernumber
+
+/*Q4 Show me the vendors and the products they supply to us for products that cost less than $100*/
+select v.vendname, p.productname, p.retailprice
+from vendors v 
+inner join product_vendors pv
+on v.vendorid = pv.vendorid 
+inner join products p 
+on pv.productnumber = p.productnumber
+where p.retailprice < 100
