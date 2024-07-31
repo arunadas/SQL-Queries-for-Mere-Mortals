@@ -51,3 +51,12 @@ on c.customerid = o.customerid
 inner join employees e 
 on o.employeeid = e.employeeid
 where c.custcity = e.empcity
+
+set search_path to entertainmentagencyexample;
+
+/*Q7 Display agents and the engagement dates they booked, sorted by booking start date*/
+select concat(a.agtfirstname, ' ', a.agtlastname) as agtName, e.startdate 
+from agents a 
+inner join engagements e 
+on a.agentid = e.agentid
+order by e.startdate
