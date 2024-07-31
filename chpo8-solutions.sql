@@ -60,3 +60,21 @@ from agents a
 inner join engagements e 
 on a.agentid = e.agentid
 order by e.startdate
+
+/*Q8 List customers and the entertainers they booked*/
+select distinct concat(c.custfirstname,' ',c.custlastname) as custName,
+en.entStagename
+from customers c 
+inner join engagements e 
+on c.customerid = e.customerid 
+inner join entertainers en
+on e.entertainerid = en.entertainerid
+
+/** Q9 Find the agents and entertainers who live in the same postal code */
+select distinct concat(a.agtfirstname, ' ', a.agtlastname) as agtName, en.entstagename  
+from ((agents a 
+inner join engagements e 
+on a.agentid = e.agentid )
+inner join entertainers en
+on e.entertainerid = en.entertainerid)
+where a.agtzipcode = en.entzipcode
