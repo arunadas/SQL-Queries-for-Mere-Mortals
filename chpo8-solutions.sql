@@ -98,3 +98,15 @@ inner join student_class_status scs
 on scs.classstatus = ss.classstatus
 where scs.classstatusdescription = 'Enrolled'
 order by 1
+
+/*Q12 List the faculty staff and the subject each teaches */
+select distinct concat(stffirstname, ' ', stflastname) as stfName , sb.subjectname
+from ((faculty f 
+inner join staff s
+on s.staffid = f.staffid
+inner join faculty_classes fc 
+on s.staffid = fc.staffid
+inner join faculty_subjects fs 
+on fs.staffid = fc.staffid)
+inner join subjects sb
+on fs.subjectid = sb.subjectid)
