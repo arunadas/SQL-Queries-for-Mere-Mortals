@@ -99,7 +99,7 @@ on scs.classstatus = ss.classstatus
 where scs.classstatusdescription = 'Enrolled'
 order by 1
 
-/*Q12 List the faculty staff and the subject each teaches */
+/** Q12 List the faculty staff and the subject each teaches */
 select distinct concat(stffirstname, ' ', stflastname) as stfName , sb.subjectname
 from ((faculty f 
 inner join staff s
