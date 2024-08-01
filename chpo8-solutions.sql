@@ -78,3 +78,23 @@ on a.agentid = e.agentid )
 inner join entertainers en
 on e.entertainerid = en.entertainerid)
 where a.agtzipcode = en.entzipcode
+
+/*Q10 Display buildings and all the classrooms in each building */
+select b.buildingcode , classroomid
+from buildings b 
+inner join class_rooms c 
+on b.buildingcode = c.buildingcode
+
+/*Q11 List students and all the classes in which they are currently enrolled */
+select distinct concat(studfirstname, ' ', studlastname) as studName,c.classid, sb.subjectname
+from students s 
+inner join student_schedules ss
+on s.studentid = ss.studentid
+inner join classes c 
+on ss.classid = c.classid
+inner join subjects sb
+on c.subjectid = sb.subjectid
+inner join student_class_status scs
+on scs.classstatus = ss.classstatus
+where scs.classstatusdescription = 'Enrolled'
+order by 1
