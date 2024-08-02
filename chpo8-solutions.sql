@@ -141,3 +141,18 @@ inner join subjects as sb
 where grade >= 85 
    and  subjectname like '%computer%') computer
    on art.studentid = computer.studentid
+
+/*Q14 List the bowling teams and all the team members */
+select t.teamname, concat(b.bowlerfirstname , ' ', b.bowlerlastname) as bowlers 
+from teams t 
+inner join bowlers b 
+on t.teamid = b.teamid
+order by t.teamid
+
+/**Q15 Display the bowlers, the matches they played in, and the bowler game scores */
+select distinct concat(b.bowlerfirstname , ' ', b.bowlerlastname) as bowlers , m.matchid, bs.handicapscore
+from bowlers b 
+inner join bowler_scores bs 
+on b.bowlerid = bs.bowlerid
+inner join match_games m
+on bs.matchid = m.matchid
