@@ -110,3 +110,34 @@ inner join faculty_subjects fs
 on fs.staffid = fc.staffid)
 inner join subjects sb
 on fs.subjectid = sb.subjectid)
+
+/*Q13 Show me the students who have a grade of 85 or better in art 
+and who have a grade of 85 or better in any computer course */
+select concat(art.studfirstname, ' ', art.studlastname) as sdName 
+from ( select  grade, studfirstname, studlastname, studentid
+	   from ( select s2.classid, s2.grade, s.studfirstname, s.studlastname, s.studentid
+	   from 
+	students s 
+inner join student_schedules s2
+on s.studentid = s2.studentid
+) as grade
+inner join classes as c 
+on grade.classid = c.classid
+inner join subjects as sb
+	 on c.subjectid = sb.subjectid
+where grade >= 85 
+   and subjectname like '%Art%') art
+   inner join 
+   (select grade, studfirstname, studlastname, studentid from ( select s2.classid, s2.grade, s.studfirstname, s.studlastname, s.studentid
+	   from 
+	students s 
+inner join student_schedules s2
+on s.studentid = s2.studentid
+) as grade
+inner join classes as c 
+on grade.classid = c.classid
+inner join subjects as sb
+	 on c.subjectid = sb.subjectid
+where grade >= 85 
+   and  subjectname like '%computer%') computer
+   on art.studentid = computer.studentid
