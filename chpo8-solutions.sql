@@ -193,3 +193,19 @@ ingredients i
 inner join measurements m
 on m.measureamountid = i.measureamountid) b
 on a.measureamountid = b.measureamountid
+
+/* Q20 show me the recipes that have beef and garlic */
+select a.recipetitle from (select r.*, i.ingredientname from recipes r 
+inner join recipe_ingredients ri
+on r.recipeid = ri.recipeid
+inner join ingredients i
+on ri.ingredientid = i.ingredientid
+where i.ingredientname = 'Beef')a
+inner join 
+(select r.*, i.ingredientname from recipes r 
+inner join recipe_ingredients ri
+on r.recipeid = ri.recipeid
+inner join ingredients i
+on ri.ingredientid = i.ingredientid
+where i.ingredientname = 'Garlic')b
+on a.recipeid = b.recipeid
