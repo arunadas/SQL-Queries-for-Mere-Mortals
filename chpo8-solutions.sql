@@ -165,3 +165,9 @@ from bowlers b1
 inner join bowlers b2 
 on b1.bowlerzip = b2.bowlerzip
 and b1.bowlerid != b2.bowlerid
+
+/*Q17 List all the recipes for salads */
+select r.recipetitle from recipes r 
+inner join recipe_classes rc
+on r.recipeclassid = rc.recipeclassid
+where rc.recipeclassdescription = 'Salad'
