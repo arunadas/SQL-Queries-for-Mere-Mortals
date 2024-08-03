@@ -171,3 +171,13 @@ select r.recipetitle from recipes r
 inner join recipe_classes rc
 on r.recipeclassid = rc.recipeclassid
 where rc.recipeclassdescription = 'Salad'
+
+/*Q18 List all the recipes that contain dairy ingredient */
+select distinct r.recipetitle from recipes r 
+inner join recipe_ingredients ri
+on r.recipeid = ri.recipeid
+inner join ingredients i
+on ri.ingredientid = i.ingredientid
+inner join ingredient_classes ic
+on i.ingredientclassid = ic.ingredientclassid
+where ic.ingredientclassdescription = 'Dairy'
