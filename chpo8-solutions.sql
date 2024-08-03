@@ -25,14 +25,14 @@ inner join products p
 on od.productnumber = p.productnumber
 order by o.ordernumber
 
-/**Q4 Show me the vendors and the products they supply to us for products that cost less than $100*/
+/*Q4 Show me the vendors and the products they supply to us for products that cost less than $100*/
 select v.vendname, p.productname, p.retailprice
 from vendors v 
 inner join product_vendors pv
 on v.vendorid = pv.vendorid 
 inner join products p 
 on pv.productnumber = p.productnumber
-where p.retailprice < 100
+where pv.WholesalePrice < 100
 
 /*Q5 show me customers and employees who have the same last name*/
 select distinct  concat(c.custfirstname,' ',c.custlastname) as custName, concat(e.empfirstname,' ',e.emplastname) as empname
@@ -182,7 +182,7 @@ inner join ingredient_classes ic
 on i.ingredientclassid = ic.ingredientclassid
 where ic.ingredientclassdescription = 'Dairy'
 
-/* Q19 Find the ingredients that use the same defualt measurement amount */
+/** Q19 Find the ingredients that use the same defualt measurement amount */
 select *  from(select i.ingredientname, m.measureamountid from 
 ingredients i
 inner join measurements m
