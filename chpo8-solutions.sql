@@ -181,3 +181,15 @@ on ri.ingredientid = i.ingredientid
 inner join ingredient_classes ic
 on i.ingredientclassid = ic.ingredientclassid
 where ic.ingredientclassdescription = 'Dairy'
+
+/* Q19 Find the ingredients that use the same defualt measurement amount */
+select *  from(select i.ingredientname, m.measureamountid from 
+ingredients i
+inner join measurements m
+on m.measureamountid = i.measureamountid) a
+inner join 
+(select i.ingredientname, m.measureamountid from 
+ingredients i
+inner join measurements m
+on m.measureamountid = i.measureamountid) b
+on a.measureamountid = b.measureamountid
