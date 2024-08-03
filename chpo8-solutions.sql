@@ -37,11 +37,8 @@ where pv.WholesalePrice < 100
 /*Q5 show me customers and employees who have the same last name*/
 select distinct  concat(c.custfirstname,' ',c.custlastname) as custName, concat(e.empfirstname,' ',e.emplastname) as empname
 from customers c 
-inner join orders o
-on c.customerid = o.customerid
 inner join employees e 
-on o.employeeid = e.employeeid
-where c.custlastname = e.emplastname
+on c.custlastname = e.emplastname
 
 /*Q6 show me customers and employees who live in same city*/
 select distinct  concat(c.custfirstname,' ',c.custlastname) as custName, concat(e.empfirstname,' ',e.emplastname) as empname
