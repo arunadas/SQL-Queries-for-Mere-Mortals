@@ -66,12 +66,9 @@ on e.entertainerid = en.entertainerid
 
 /** Q9 Find the agents and entertainers who live in the same postal code */
 select distinct concat(a.agtfirstname, ' ', a.agtlastname) as agtName, en.entstagename  
-from ((agents a 
-inner join engagements e 
-on a.agentid = e.agentid )
+from agents a 
 inner join entertainers en
-on e.entertainerid = en.entertainerid)
-where a.agtzipcode = en.entzipcode
+on a.agtzipcode = en.entzipcode
 
 /*Q10 Display buildings and all the classrooms in each building */
 select b.buildingcode , classroomid
