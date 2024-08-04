@@ -166,16 +166,14 @@ on r.recipeclassid = rc.recipeclassid
 where rc.recipeclassdescription = 'Salad'
 
 /*Q18 List all the recipes that contain dairy ingredient */
-select distinct r.recipetitle from recipes r 
-inner join recipe_ingredients ri
-on r.recipeid = ri.recipeid
-inner join ingredients i
-on ri.ingredientid = i.ingredientid
-inner join ingredient_classes ic
-on i.ingredientclassid = ic.ingredientclassid
+select distinct r.recipetitle 
+from recipes r 
+inner join recipe_ingredients ri on r.recipeid = ri.recipeid
+inner join ingredients i on ri.ingredientid = i.ingredientid
+inner join ingredient_classes ic on i.ingredientclassid = ic.ingredientclassid
 where ic.ingredientclassdescription = 'Dairy'
 
-/** Q19 Find the ingredients that use the same defualt measurement amount */
+/* Q19 Find the ingredients that use the same defualt measurement amount */
 select *  from(select i.ingredientname, m.measureamountid from 
 ingredients i
 inner join measurements m
@@ -185,7 +183,8 @@ inner join
 ingredients i
 inner join measurements m
 on m.measureamountid = i.measureamountid) b
-on a.measureamountid = b.measureamountid
+on a.ingredientname <> b.ingredientname
+and a.measureamountid = b.measureamountid
 
 /* Q20 show me the recipes that have beef and garlic */
 select a.recipetitle from (select r.*, i.ingredientname from recipes r 
