@@ -94,15 +94,11 @@ order by 1
 
 /** Q12 List the faculty staff and the subject each teaches */
 select distinct concat(stffirstname, ' ', stflastname) as stfName , sb.subjectname
-from ((faculty f 
-inner join staff s
-on s.staffid = f.staffid
-inner join faculty_classes fc 
-on s.staffid = fc.staffid
+from  staff s
 inner join faculty_subjects fs 
-on fs.staffid = fc.staffid)
+on s.staffid = fs.staffid
 inner join subjects sb
-on fs.subjectid = sb.subjectid)
+on fs.subjectid = sb.subjectid
 
 /*Q13 Show me the students who have a grade of 85 or better in art 
 and who have a grade of 85 or better in any computer course */
