@@ -64,11 +64,13 @@ on c.customerid = e.customerid
 inner join entertainers en
 on e.entertainerid = en.entertainerid
 
-/** Q9 Find the agents and entertainers who live in the same postal code */
+/* Q9 Find the agents and entertainers who live in the same postal code */
 select distinct concat(a.agtfirstname, ' ', a.agtlastname) as agtName, en.entstagename  
 from agents a 
 inner join entertainers en
 on a.agtzipcode = en.entzipcode
+
+set search_path to schoolschedulingexample;
 
 /*Q10 Display buildings and all the classrooms in each building */
 select b.buildingcode , classroomid
