@@ -131,6 +131,8 @@ where grade >= 85
    and  subjectname like '%computer%') computer
    on art.studentid = computer.studentid
 
+set search_path to bowlingleagueexample;
+
 /*Q14 List the bowling teams and all the team members */
 select t.teamname, concat(b.bowlerfirstname , ' ', b.bowlerlastname) as bowlers 
 from teams t 
