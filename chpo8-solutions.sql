@@ -140,13 +140,13 @@ inner join bowlers b
 on t.teamid = b.teamid
 order by t.teamid
 
-/**Q15 Display the bowlers, the matches they played in, and the bowler game scores */
-select distinct concat(b.bowlerfirstname , ' ', b.bowlerlastname) as bowlers , m.matchid, bs.handicapscore
-from bowlers b 
-inner join bowler_scores bs 
-on b.bowlerid = bs.bowlerid
-inner join match_games m
-on bs.matchid = m.matchid
+/* Q15 Display the bowlers, the matches they played in, and the bowler game scores */
+select distinct concat(b.bowlerfirstname , ' ', b.bowlerlastname) as bowlers , bs.matchid , bs.gamenumber, bs.rawscore
+from teams t 
+inner join bowlers b 
+on t.teamid = b.teamid
+inner join Bowler_Scores bs
+on bs.bowlerid = b.bowlerid
 
 /*Q16 Find the bowlers who live in the same zip code */
 select concat(b1.bowlerfirstname,' ',b1.bowlerlastname) as bowlern1,
