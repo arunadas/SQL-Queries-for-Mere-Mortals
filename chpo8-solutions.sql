@@ -148,7 +148,7 @@ on t.teamid = b.teamid
 inner join Bowler_Scores bs
 on bs.bowlerid = b.bowlerid
 
-/*Q16 Find the bowlers who live in the same zip code */
+/* Q16 Find the bowlers who live in the same zip code */
 select concat(b1.bowlerfirstname,' ',b1.bowlerlastname) as bowlern1,
 concat(b2.bowlerfirstname,' ',b2.bowlerlastname) as bowlern2,
 b2.bowlerzip
@@ -157,7 +157,9 @@ inner join bowlers b2
 on b1.bowlerzip = b2.bowlerzip
 and b1.bowlerid != b2.bowlerid
 
-/*Q17 List all the recipes for salads */
+set search_path to recipesexample;
+
+/* Q17 List all the recipes for salads */
 select r.recipetitle from recipes r 
 inner join recipe_classes rc
 on r.recipeclassid = rc.recipeclassid
