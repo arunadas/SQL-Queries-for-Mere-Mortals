@@ -17,3 +17,11 @@ select concat(c.custfirstname,' ', c.custlastname) as customerName
 from customers c 
 left join employees e on c.custzipcode = e.empzipcode
 where e.employeeid is null
+
+/*Q3 List all products and the dates for any orders */
+select p.productname,p.productnumber, o.orderdate 
+from products p 
+left join 
+(select distinct od.productnumber , o.orderdate from order_details od 
+inner join orders o on od.ordernumber = o.ordernumber ) o
+on p.productnumber = o.productnumber 
