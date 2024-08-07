@@ -31,3 +31,9 @@ select concat(agtfirstname, ' ',agtlastname) as agtName
 from agents a 
 left join engagements e on a.agentid = e.agentid
 where e.agentid is null
+
+/*Q5 List customers with no bookings */
+select concat(custfirstname, ' ',custlastname) as agtName
+from customers c 
+left join engagements e on c.customerid = e.customerid
+where e.customerid is null
