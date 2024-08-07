@@ -25,3 +25,9 @@ left join
 (select distinct od.productnumber , o.orderdate from order_details od 
 inner join orders o on od.ordernumber = o.ordernumber ) o
 on p.productnumber = o.productnumber 
+
+/*Q4 Display agents who haven't booked an entertainer */
+select concat(agtfirstname, ' ',agtlastname) as agtName
+from agents a 
+left join engagements e on a.agentid = e.agentid
+where e.agentid is null
