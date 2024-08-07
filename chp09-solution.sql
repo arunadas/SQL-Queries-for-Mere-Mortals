@@ -37,3 +37,8 @@ select concat(custfirstname, ' ',custlastname) as agtName
 from customers c 
 left join engagements e on c.customerid = e.customerid
 where e.customerid is null
+
+/*Q6 List all entertainers and any engagements they have booked */
+select e.entstageName, e2.engagementnumber
+from entertainers e 
+left join engagements e2 on e.entertainerid = e2.entertainerid
