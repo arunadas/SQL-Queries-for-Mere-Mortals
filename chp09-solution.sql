@@ -42,3 +42,13 @@ where e.customerid is null
 select e.entstageName, e2.engagementnumber
 from entertainers e 
 left join engagements e2 on e.entertainerid = e2.entertainerid
+
+/*Q7 Show me classes that have no students enrolled. */
+select * from classes c
+left join 
+(select c.*,sc.classstatusdescription from classes c 
+left join student_schedules s2 on c.classid = s2.classid
+inner join student_class_status sc on s2.classstatus = sc.classstatus
+where sc.classstatusdescription = 'Enrolled') e
+on c.classid = e.classid 
+where e.classstatusdescription is null
