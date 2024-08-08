@@ -60,3 +60,13 @@ left join
 inner join faculty f on fs.staffid = f.staffid) f
 on s.subjectid = f.subjectid 
 where f.staffid is null
+
+/*Q9 List students not currently enrolled in any classes */
+select * from students s
+left join 
+(select s.*,sc.classstatusdescription from student_schedules s2 
+ inner join students s on s2.studentid = s.studentid
+inner join  student_class_status sc on s2.classstatus = sc.classstatus
+where sc.classstatusdescription = 'Enrolled') e
+on s.studentid= e.studentid 
+where e.classstatusdescription is null
