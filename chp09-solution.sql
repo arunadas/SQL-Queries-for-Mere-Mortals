@@ -52,3 +52,11 @@ inner join student_class_status sc on s2.classstatus = sc.classstatus
 where sc.classstatusdescription = 'Enrolled') e
 on c.classid = e.classid 
 where e.classstatusdescription is null
+
+/*Q8 Display subjects with no faculty assigned */
+select * from subjects s
+left join 
+(select f.*,fs.subjectid from faculty_subjects fs
+inner join faculty f on fs.staffid = f.staffid) f
+on s.subjectid = f.subjectid 
+where f.staffid is null
