@@ -84,3 +84,13 @@ on sc.staffid= s.staffid
 select * from tourney_matches mt 
 left join match_games mg on mt.matchid = mg.matchid
 where mg.matchid is null
+
+/*Q12 Display all tournaments and any matches that have been played */
+select t.tourneyid, t.tourneydate, t.tourneylocation,
+mg.matchid , mg.gamenumber, mg.winner from tournaments t 
+left join 
+( select mg.gamenumber, t.teamname as winner, tm.* from  tourney_matches tm 
+inner join  match_games mg on tm.matchid = mg.matchid
+inner join teams t on t.teamid = mg.winningteamid
+ ) mg
+on t.tourneyid = mg.tourneyid
