@@ -70,3 +70,12 @@ inner join  student_class_status sc on s2.classstatus = sc.classstatus
 where sc.classstatusdescription = 'Enrolled') e
 on s.studentid= e.studentid 
 where e.classstatusdescription is null
+
+/*Q10 Display all faculty and the classes they are scheduled to teach */
+select distinct concat(s.stfFirstName,' ', s.stfLastname) as staffName
+,subjectName, classid, classroomid,starttime, duration  from staff s
+left join 
+(select s.subjectname,c.* ,fc.staffid from faculty_classes fc  
+inner join  classes c on c.classid = fc.classid
+inner join subjects s on c.subjectid = s.subjectid) sc
+on sc.staffid= s.staffid 
