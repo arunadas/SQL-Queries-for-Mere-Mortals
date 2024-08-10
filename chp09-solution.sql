@@ -80,6 +80,8 @@ inner join  classes c on c.classid = fc.classid
 inner join subjects s on c.subjectid = s.subjectid) sc
 on sc.staffid= s.staffid 
 
+set search_path to bowlingleagueexample;
+
 /*Q11 Display matches with no game data */
 select * from tourney_matches mt 
 left join match_games mg on mt.matchid = mg.matchid
