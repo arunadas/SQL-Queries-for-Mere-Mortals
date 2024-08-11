@@ -117,3 +117,9 @@ select rc.recipeclassdescription, r.recipetitle from recipe_classes rc
 left join recipes r on rc.recipeclassid = r.recipeclassid
 where rc.recipeclassdescription in ('Soup','Salad', 'Main course')
 order by rc.recipeclassdescription
+
+/*Q16 Display all recipe classes and any recipes */
+select rc.recipeclassdescription, r.recipetitle from recipe_classes rc 
+left join recipes r on rc.recipeclassid = r.recipeclassid
+--where rc.recipeclassdescription in ('Soup','Salad', 'Main course')
+order by rc.recipeclassdescription
