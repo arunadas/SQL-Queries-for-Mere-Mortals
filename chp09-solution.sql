@@ -96,3 +96,8 @@ inner join  match_games mg on tm.matchid = mg.matchid
 inner join teams t on t.teamid = mg.winningteamid
  ) mg
 on t.tourneyid = mg.tourneyid
+
+/*Q13 Display missing types of recipes */
+select * from recipe_classes rc 
+left join recipes r on rc.recipeclassid = r.recipeclassid
+where r.recipeclassid is null
