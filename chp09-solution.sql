@@ -101,3 +101,11 @@ on t.tourneyid = mg.tourneyid
 select * from recipe_classes rc 
 left join recipes r on rc.recipeclassid = r.recipeclassid
 where r.recipeclassid is null
+
+/*Q14 Show me all ingrediants and any recipes they're used in */
+select ingredientname, ri.recipeTitle from ingredients i 
+left join (
+	select * from recipe_ingredients ri 
+	inner join recipes r on ri.recipeid = r.recipeid
+	)ri on i.ingredientid = ri.ingredientid
+order by 1
