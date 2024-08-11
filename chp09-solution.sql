@@ -111,3 +111,9 @@ left join (
 	inner join recipes r on ri.recipeid = r.recipeid
 	)ri on i.ingredientid = ri.ingredientid
 order by 1
+
+/*Q15 List the salad, soup, and main course categories and any recipes */
+select rc.recipeclassdescription, r.recipetitle from recipe_classes rc 
+left join recipes r on rc.recipeclassid = r.recipeclassid
+where rc.recipeclassdescription in ('Soup','Salad', 'Main course')
+order by rc.recipeclassdescription
