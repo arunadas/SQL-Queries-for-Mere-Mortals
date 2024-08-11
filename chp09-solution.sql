@@ -97,6 +97,8 @@ inner join teams t on t.teamid = mg.winningteamid
  ) mg
 on t.tourneyid = mg.tourneyid
 
+set search_path to recipesexample;
+
 /*Q13 Display missing types of recipes */
 select * from recipe_classes rc 
 left join recipes r on rc.recipeclassid = r.recipeclassid
