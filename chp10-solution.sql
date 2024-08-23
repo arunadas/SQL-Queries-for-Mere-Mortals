@@ -29,3 +29,22 @@ select  concat(custfirstname,' ', custlastname) as customers , 'customer' as row
 union  
 
 select  entstagename,  'entertainer' as rowid from entertainers 
+
+
+/*Q3 Produce a list of customers who like contemporay music together with a 
+list of entertainers who play contempory music*/
+select  concat(custfirstname,' ', custlastname) as customers , 'customer' as rowid from customers c
+inner join musical_preferences mp 
+on c.customerid = mp.customerid 
+inner join musical_styles ms
+on mp.styleid = ms.styleid
+and stylename = 'Contemporary'
+
+union  
+
+select  entstagename,  'entertainer' as rowid from entertainers e
+inner join entertainer_styles es 
+on e.entertainerid = es.entertainerid 
+inner join musical_styles ms
+on es.styleid = ms.styleid
+and stylename = 'Contemporary'
