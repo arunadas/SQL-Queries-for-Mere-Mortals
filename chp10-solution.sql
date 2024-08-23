@@ -20,3 +20,12 @@ on v.vendorid = pv.vendorid
 inner join products p 
 on p.productnumber = pv.productnumber
 where p.productname like '%Helmet%'
+
+set search_path to entertainmentagencyexample;
+
+/*Q2 Display a combined list of customers and entertainers */
+select  concat(custfirstname,' ', custlastname) as customers , 'customer' as rowid from customers 
+
+union  
+
+select  entstagename,  'entertainer' as rowid from entertainers 
