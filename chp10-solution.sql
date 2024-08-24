@@ -48,3 +48,15 @@ on e.entertainerid = es.entertainerid
 inner join musical_styles ms
 on es.styleid = ms.styleid
 and stylename = 'Contemporary'
+
+set search_path to schoolschedulingexample;
+
+/*Q4 Create a mailing list for students and staff, sorted by zip code */
+select  concat(studfirstname, ' ', studlastname) as name ,studzipcode as zipcode, 'student' as type
+from students s 
+
+union  
+
+select  concat(stffirstname, ' ', stflastname) as name ,stfzipcode as zipcode, 'staff' as type
+from staff s 
+order by zipcode
