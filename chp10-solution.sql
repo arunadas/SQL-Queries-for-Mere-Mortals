@@ -58,3 +58,35 @@ union
 select  concat(stffirstname, ' ', stflastname) as name ,stfzipcode as zipcode, 'staff' as type
 from staff s 
 order by zipcode
+
+set search_path to bowlingleagueexample;
+
+/*Q5 Find the bowlers who had a raw score of 165 or better at Thunder bird Lanes combined with bowlers who had a raw score of 150
+or better at Bolero Lanes*/
+select t.tourneylocation, concat(bowlerfirstname, ' ', bowlerlastname) as bowlerName , bs.rawscore
+from bowlers b 
+inner join bowler_scores bs 
+on b.bowlerid = bs.bowlerid
+inner join match_games mg 
+on bs.matchid = mg.matchid 
+inner join tourney_matches tm
+on mg.matchid = tm.matchid
+inner join tournaments t 
+on tm.tourneyid = t.tourneyid
+where bs.rawscore > 165 
+and t.tourneylocation = 'Thunderbird Lanes'
+
+union  
+
+select t.tourneylocation, concat(bowlerfirstname, ' ', bowlerlastname) as bowlerName , bs.rawscore
+from bowlers b 
+inner join bowler_scores bs 
+on b.bowlerid = bs.bowlerid
+inner join match_games mg 
+on bs.matchid = mg.matchid 
+inner join tourney_matches tm
+on mg.matchid = tm.matchid
+inner join tournaments t 
+on tm.tourneyid = t.tourneyid
+where bs.rawscore > 150 
+and t.tourneylocation = 'Bolero Lanes'
