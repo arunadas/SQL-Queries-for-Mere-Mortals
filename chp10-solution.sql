@@ -1,8 +1,6 @@
 set search_path to salesordersexample;
 
 /*Q1 list the customers who ordered a helmet together with the vendors who provide helmets */
-
-/*Q1 list the customers who ordered a helmet together with the vendors who provide helmets */
 select  concat(custfirstname,' ', custlastname) as customers , p.productname, 'customer' as rowid from customers c
 inner join orders o  
 on c.customerid = o.customerid 
