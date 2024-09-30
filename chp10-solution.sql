@@ -90,3 +90,17 @@ inner join tournaments t
 on tm.tourneyid = t.tourneyid
 where bs.rawscore > 150 
 and t.tourneylocation = 'Bolero Lanes'
+
+/* same with where clause*/
+select t.tourneylocation, concat(bowlerfirstname, ' ', bowlerlastname) as bowlerName , bs.rawscore
+from bowlers b 
+inner join bowler_scores bs 
+on b.bowlerid = bs.bowlerid
+inner join tourney_matches tm
+on bs.matchid = tm.matchid
+inner join tournaments t 
+on tm.tourneyid = t.tourneyid
+where (bs.rawscore > 165 
+and t.tourneylocation = 'Thunderbird Lanes')
+or (bs.rawscore > 150 
+and t.tourneylocation = 'Bolero Lanes')
