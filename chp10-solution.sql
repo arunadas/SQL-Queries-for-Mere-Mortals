@@ -104,3 +104,21 @@ where (bs.rawscore > 165
 and t.tourneylocation = 'Thunderbird Lanes')
 or (bs.rawscore > 150 
 and t.tourneylocation = 'Bolero Lanes')
+
+
+set search_path to recipesexample;
+
+/*Display a list of the ingredients and their default measurement amounts together 
+with ingredients used in recipes and the measurement amount for each receipe*/
+
+select ingredientname , measurementdescription , 'Ingredient' as type
+from ingredients i inner join measurements m 
+on i.measureamountid = m.measureamountid
+
+union 
+
+select ingredientname , measurementdescription , 'Recipe' as Type
+from ingredients i inner join recipe_ingredients ri 
+on i.ingredientid = ri.ingredientid 
+inner join measurements m 
+on ri.measureamountid = m.measureamountid
