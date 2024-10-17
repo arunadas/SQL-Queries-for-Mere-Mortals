@@ -20,3 +20,8 @@ inner join products p
 on od.productnumber = p.productnumber
 where p.categoryid = 2
 	)
+
+/* Q3 What products have never been ordered */
+
+select productname from products where productnumber not in (
+select productnumber from order_details)    
