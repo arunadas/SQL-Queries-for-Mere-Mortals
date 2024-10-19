@@ -25,3 +25,10 @@ where p.categoryid = 2
 
 select productname from products where productnumber not in (
 select productnumber from order_details)    
+
+set search_path to entertainmentagencyexample;
+
+/* Q4 Show me all entertainers and the count of each entertainers engagement */
+
+select entstagename , ( select count(engagementnumber) from engagements eg where eg.entertainerid = e.entertainerid) 
+from entertainers e
