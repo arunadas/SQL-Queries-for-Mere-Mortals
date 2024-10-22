@@ -32,3 +32,17 @@ set search_path to entertainmentagencyexample;
 
 select entstagename , ( select count(engagementnumber) from engagements eg where eg.entertainerid = e.entertainerid) 
 from entertainers e
+
+/* Q5 List customers who have booked entertainers who play country or country rock */
+SELECT CONCAT(CUSTFIRSTNAME,
+
+								' ',
+								CUSTLASTNAME) AS CUSTNAME
+FROM CUSTOMERS
+WHERE CUSTOMERID in
+		(SELECT DISTINCT EG.CUSTOMERID
+			FROM MUSICAL_STYLES MS
+			INNER JOIN ENTERTAINER_STYLES ES ON MS.STYLEID = ES.STYLEID
+			INNER JOIN ENTERTAINERS E ON ES.ENTERTAINERID = E.ENTERTAINERID
+			INNER JOIN ENGAGEMENTS EG ON E.ENTERTAINERID = EG.ENTERTAINERID
+			WHERE MS.STYLENAME like 'Country%')
