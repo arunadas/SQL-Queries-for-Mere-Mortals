@@ -56,3 +56,13 @@ on eg.entertainerid = e.entertainerid
 where eg.customerid in (
 select customerid from customers
 where custlastname in ('Berg', 'Hallmark'))            
+
+/*using some */
+select entstagename from entertainers  
+where entertainerid = some 
+(select eg.entertainerid from customers c
+inner join engagements eg 
+on eg.customerid = c.customerid
+where c.custlastname = 'Berg' 
+ or c.custlastname = 'Hallmark'
+)
