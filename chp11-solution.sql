@@ -46,3 +46,13 @@ WHERE CUSTOMERID in
 			INNER JOIN ENTERTAINERS E ON ES.ENTERTAINERID = E.ENTERTAINERID
 			INNER JOIN ENGAGEMENTS EG ON E.ENTERTAINERID = EG.ENTERTAINERID
 			WHERE MS.STYLENAME like 'Country%')
+
+
+/* Q6 Find the entertainers who played engagements for customers Berg or Hallmark */
+
+select distinct e.entstagename from engagements eg 
+inner join entertainers e 
+on eg.entertainerid = e.entertainerid
+where eg.customerid in (
+select customerid from customers
+where custlastname in ('Berg', 'Hallmark'))            
