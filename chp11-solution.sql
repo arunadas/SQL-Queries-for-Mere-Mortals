@@ -66,3 +66,13 @@ on eg.customerid = c.customerid
 where c.custlastname = 'Berg' 
  or c.custlastname = 'Hallmark'
 )
+
+/*using any */
+select entstagename from entertainers  
+where entertainerid = any 
+(select eg.entertainerid from customers c
+inner join engagements eg 
+on eg.customerid = c.customerid
+where c.custlastname = 'Berg' 
+ or c.custlastname = 'Hallmark'
+)
