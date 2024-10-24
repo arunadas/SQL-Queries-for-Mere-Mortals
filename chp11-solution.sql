@@ -76,3 +76,9 @@ on eg.customerid = c.customerid
 where c.custlastname = 'Berg' 
  or c.custlastname = 'Hallmark'
 )
+
+/* Q7 Display agents who haven't booked an entertainer */
+
+select concat(agtfirstname,' ', agtlastname) as agtName 
+from agents 
+where agentid not in ( select agentid from engagements)
