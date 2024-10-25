@@ -88,6 +88,6 @@ SET SEARCH_PATH TO schoolschedulingexample;
 /* List all staff members and the count of classes each teaches */
 
 select concat(stffirstname , ' ' , stflastname) as staffName , 
-(select count(f.classid) from faculty_classes f 
+(select count(f.classid) AS classCount from faculty_classes f 
 where f.staffid = s.staffid)
 from staff s
