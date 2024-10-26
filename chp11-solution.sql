@@ -85,9 +85,18 @@ where agentid not in ( select agentid from engagements)
 
 SET SEARCH_PATH TO schoolschedulingexample;
 
-/* List all staff members and the count of classes each teaches */
+/* Q8 List all staff members and the count of classes each teaches */
 
 select concat(stffirstname , ' ' , stflastname) as staffName , 
 (select count(f.classid) AS classCount from faculty_classes f 
 where f.staffid = s.staffid)
 from staff s
+
+/* Q9 Display students enrolled in a class on Tuesday */
+
+select concat(studfirstname , ' ' , studlastname) as staffName
+from students where studentid in 
+(select studentid from student_schedules s
+ inner join classes c
+ on s.classid = c.classid
+and c.tuesdayschedule = 1)
