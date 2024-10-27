@@ -100,3 +100,11 @@ from students where studentid in
  inner join classes c
  on s.classid = c.classid
 and c.tuesdayschedule = 1)
+
+
+/* Q10 List the subjects taught on wednesday */
+
+select subjectName
+from subjects where subjectid in 
+(select subjectid from classes 
+ where wednesdayschedule = 1)
